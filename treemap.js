@@ -5,8 +5,8 @@ function inspect(obj, depth) {
 }
 const d3 = window.d3
 const graph = require('./sample-graph.js')
-const width = 180
-const height = 600
+const width = 600 
+const height = 800
 
 function getChildren(d) {
   return d.children
@@ -16,10 +16,18 @@ const root = d3.hierarchy(graph, getChildren)
 
 var treemap = d3.treemap()
     .size([width, height])
+    .round(true)
     .padding(2)
 
+function sumRoot(d) {
+  function add(acc, alloc) {
+    return acc + (alloc.count * alloc.size)
+  }
+  return d.allocations.reduce(add, 0)
+}
+
 const nodes = treemap(root
-    .sum(d => d.allocations.length)
+    .sum(sumRoot)
     .sort((a, b) => b.height - a.height || b.depth - a.depth)
   )
   .descendants()
