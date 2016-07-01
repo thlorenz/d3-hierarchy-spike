@@ -1,6 +1,7 @@
 BIN=./node_modules/.bin
 WATCHIFY=$(BIN)/watchify
 BROWSERIFY=$(BIN)/browserify
+UGLIFYJS=$(BIN)/uglifyjs
 
 REQUIRE_VENDORS=
 EXCLUDE_MODULES=
@@ -29,7 +30,7 @@ bundle-raw:
 	$(BROWSERIFY) $(EXCLUDE_MODULES) $(ENTRY) -o $(OUTPUT)
 
 bundle-min:
-	$(BROWSERIFY) $(EXCLUDE_MODULES) $(ENTRY) | $(UGLIFYJS) > $(OUTPUT)
+	$(BROWSERIFY) $(EXCLUDE_MODULES) $(ENTRY) | $(UGLIFYJS) -o $(OUTPUT)
 
 vendor:
 	$(BROWSERIFY) -d $(REQUIRE_VENDORS) -o build/vendor.js
