@@ -10,6 +10,9 @@ OUTPUT=build/bundle.js
 
 build: bundle
 
+clean:
+	rm -rf $(OUTPUT)
+
 watch:
 	$(WATCHIFY) -d $(EXCLUDE_MODULES) $(ENTRY) -o $(OUTPUT)
 

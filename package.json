@@ -8,11 +8,11 @@
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "babelify": "~7.3.0",
     "browserify": "~13.0.1",
+    "uglifyjs": "~2.4.10",
     "watchify": "~3.7.0"
   }
 }
