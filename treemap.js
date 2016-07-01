@@ -5,7 +5,7 @@ function inspect(obj, depth) {
 }
 const d3 = window.d3
 const graph = require('./sample-graph.js')
-const width = 600 
+const width = 600
 const height = 800
 
 function getChildren(d) {
@@ -35,10 +35,9 @@ const nodes = treemap(root
 if (typeof window === 'undefined') {
   inspect(nodes)
 } else {
-  console.log(nodes)
   const color = d3.scale.category20()
 
-  const svg = d3.select('body').append('svg')
+  const svg = d3.select('.treemap').append('svg')
       .attr('width', width)
       .attr('height', height)
   svg.selectAll('.node')

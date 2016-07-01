@@ -8,7 +8,7 @@ const graph = require('./sample-graph.js')
 const width = 1400
 const height = 800
 
-const svg = d3.select('body').append('svg')
+const svg = d3.select('.flamegraph').append('svg')
   .attr('width', width)
   .attr('height', height)
 

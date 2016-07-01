@@ -1,7 +1,7 @@
 #!/bin/sh
 
 CURRENT_BRANCH=`git rev-parse --abbrev-ref HEAD`
-ENTRY=${ENTRY:-flamegraph.js}
+ENTRY=${ENTRY:-all.js}
 
 rm -rf build/bundle.js             && \
 git checkout gh-pages              && \

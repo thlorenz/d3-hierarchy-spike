@@ -18,7 +18,7 @@ const tree = d3.tree()
     .size([ height, width - 150 ])
 tree(root)
 
-const svg = d3.select('body').append('svg')
+const svg = d3.select('.tree').append('svg')
     .attr('width', width)
     .attr('height', height)
   .append('g')
