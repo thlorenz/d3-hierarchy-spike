@@ -67,11 +67,12 @@ module.exports = function initSunburst(graph, inspect) {
     .attr('y', 0)
     .attr('font-size', '11px')
     .style('opacity', 0)
+    .style('white-space', 'pre')
 
   function getLabel(d) {
     const parts = d.script_name.split('/')
     const shortScriptName = parts.slice(-2).join('/')
-    return `${shortScriptName} (${d.name})`
+    return `[${sumAllocs(d)}] (${d.name}) ${shortScriptName}`
   }
 
   function mouseover(d) {
