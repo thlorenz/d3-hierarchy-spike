@@ -10,12 +10,22 @@ const initSunburst = require('./sunburst')
 const initTree = require('./tree')
 const initTreemap = require('./treemap')
 
+const flamegraphEl = document.getElementById('flamegraph')
+const sunburstEl = document.getElementById('sunburst')
+const treeEl = document.getElementById('tree')
+const treemapEl = document.getElementById('treemap')
+
 const graph = './flat.json'
 
 function refresh() {
   xhr({ uri: graph, json: true }, ongraph)
   function ongraph(err, res, graph) {
     if (err) return console.error(err)
+    sunburstEl.innerHTML = ''
+    flamegraphEl.innerHTML = ''
+    treeEl.innerHTML = ''
+    treemapEl.innerHTML = ''
+
     initFlamegraph(graph, inspect)
     initSunburst(graph, inspect)
     initTree(graph, inspect)

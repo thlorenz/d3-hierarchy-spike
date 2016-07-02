@@ -3,7 +3,7 @@
 const d3 = window.d3
 
 module.exports = function initSunburst(graph, inspect) {
-  const width = 1400
+  const width = 1000
   const height = 800
   const radius = Math.min(width, height) / 2
 
