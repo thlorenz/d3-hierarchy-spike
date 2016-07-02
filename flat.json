@@ -1,0 +1,827 @@
+{
+  "id": "0:0:0",
+  "script_id": 0,
+  "script_name": "",
+  "name": "(root)",
+  "line_number": 0,
+  "column_number": 0,
+  "start_position": 0,
+  "allocations": [],
+  "child_ids": [
+    "34:10:10"
+  ],
+  "children": [
+    {
+      "id": "34:10:10",
+      "script_id": 34,
+      "script_name": "node.js",
+      "name": "",
+      "line_number": 10,
+      "column_number": 10,
+      "start_position": 308,
+      "allocations": [],
+      "child_ids": [
+        "34:28:19"
+      ],
+      "children": [
+        {
+          "id": "34:28:19",
+          "script_id": 34,
+          "script_name": "node.js",
+          "name": "startup",
+          "line_number": 28,
+          "column_number": 19,
+          "start_position": 840,
+          "allocations": [],
+          "child_ids": [
+            "51:617:26"
+          ],
+          "children": [
+            {
+              "id": "51:617:26",
+              "script_id": 51,
+              "script_name": "module.js",
+              "name": "Module.runMain",
+              "line_number": 617,
+              "column_number": 26,
+              "start_position": 17856,
+              "allocations": [],
+              "child_ids": [
+                "51:425:24"
+              ],
+              "children": [
+                {
+                  "id": "51:425:24",
+                  "script_id": 51,
+                  "script_name": "module.js",
+                  "name": "Module._load",
+                  "line_number": 425,
+                  "column_number": 24,
+                  "start_position": 12560,
+                  "allocations": [],
+                  "child_ids": [
+                    "51:456:23"
+                  ],
+                  "children": [
+                    {
+                      "id": "51:456:23",
+                      "script_id": 51,
+                      "script_name": "module.js",
+                      "name": "tryModuleLoad",
+                      "line_number": 456,
+                      "column_number": 23,
+                      "start_position": 13240,
+                      "allocations": [],
+                      "child_ids": [
+                        "51:491:33"
+                      ],
+                      "children": [
+                        {
+                          "id": "51:491:33",
+                          "script_id": 51,
+                          "script_name": "module.js",
+                          "name": "Module.load",
+                          "line_number": 491,
+                          "column_number": 33,
+                          "start_position": 14107,
+                          "allocations": [],
+                          "child_ids": [
+                            "51:590:37"
+                          ],
+                          "children": [
+                            {
+                              "id": "51:590:37",
+                              "script_id": 51,
+                              "script_name": "module.js",
+                              "name": "Module._extensions..js",
+                              "line_number": 590,
+                              "column_number": 37,
+                              "start_position": 17121,
+                              "allocations": [],
+                              "child_ids": [
+                                "51:523:37"
+                              ],
+                              "children": [
+                                {
+                                  "id": "51:523:37",
+                                  "script_id": 51,
+                                  "script_name": "module.js",
+                                  "name": "Module._compile",
+                                  "line_number": 523,
+                                  "column_number": 37,
+                                  "start_position": 15112,
+                                  "allocations": [],
+                                  "child_ids": [
+                                    "78:1:11"
+                                  ],
+                                  "children": [
+                                    {
+                                      "id": "78:1:11",
+                                      "script_id": 78,
+                                      "script_name": "/Volumes/d/dev/js/sample-heap/example/cli-inner.js",
+                                      "name": "",
+                                      "line_number": 1,
+                                      "column_number": 11,
+                                      "start_position": 10,
+                                      "allocations": [],
+                                      "child_ids": [
+                                        "80:5:33"
+                                      ],
+                                      "children": [
+                                        {
+                                          "id": "80:5:33",
+                                          "script_id": 80,
+                                          "script_name": "/Volumes/d/dev/js/sample-heap/example/sample.js",
+                                          "name": "sample",
+                                          "line_number": 5,
+                                          "column_number": 33,
+                                          "start_position": 135,
+                                          "allocations": [
+                                            {
+                                              "count": 6,
+                                              "size": 24
+                                            },
+                                            {
+                                              "count": 2,
+                                              "size": 32
+                                            },
+                                            {
+                                              "count": 1,
+                                              "size": 40
+                                            },
+                                            {
+                                              "count": 1,
+                                              "size": 56
+                                            },
+                                            {
+                                              "count": 1,
+                                              "size": 72
+                                            },
+                                            {
+                                              "count": 1,
+                                              "size": 80
+                                            },
+                                            {
+                                              "count": 2,
+                                              "size": 88
+                                            },
+                                            {
+                                              "count": 2,
+                                              "size": 112
+                                            },
+                                            {
+                                              "count": 1,
+                                              "size": 136
+                                            },
+                                            {
+                                              "count": 1,
+                                              "size": 176
+                                            },
+                                            {
+                                              "count": 1,
+                                              "size": 864
+                                            }
+                                          ],
+                                          "child_ids": [
+                                            "78:14:22",
+                                            "81:118:57"
+                                          ],
+                                          "children": [
+                                            {
+                                              "id": "78:14:22",
+                                              "script_id": 78,
+                                              "script_name": "/Volumes/d/dev/js/sample-heap/example/cli-inner.js",
+                                              "name": "alloc",
+                                              "line_number": 14,
+                                              "column_number": 22,
+                                              "start_position": 385,
+                                              "allocations": [
+                                                {
+                                                  "count": 3,
+                                                  "size": 16
+                                                },
+                                                {
+                                                  "count": 2,
+                                                  "size": 24
+                                                },
+                                                {
+                                                  "count": 11,
+                                                  "size": 32
+                                                },
+                                                {
+                                                  "count": 3,
+                                                  "size": 40
+                                                },
+                                                {
+                                                  "count": 1,
+                                                  "size": 48
+                                                },
+                                                {
+                                                  "count": 2,
+                                                  "size": 104
+                                                },
+                                                {
+                                                  "count": 1,
+                                                  "size": 144
+                                                },
+                                                {
+                                                  "count": 1,
+                                                  "size": 152
+                                                },
+                                                {
+                                                  "count": 1,
+                                                  "size": 208
+                                                },
+                                                {
+                                                  "count": 1,
+                                                  "size": 384
+                                                }
+                                              ],
+                                              "child_ids": [
+                                                "79:7:51",
+                                                "79:22:39"
+                                              ],
+                                              "children": [
+                                                {
+                                                  "id": "79:7:51",
+                                                  "script_id": 79,
+                                                  "script_name": "/Volumes/d/dev/js/sample-heap/example/allocate.js",
+                                                  "name": "innerOuterArray",
+                                                  "line_number": 7,
+                                                  "column_number": 51,
+                                                  "start_position": 188,
+                                                  "allocations": [
+                                                    {
+                                                      "count": 0,
+                                                      "size": 16
+                                                    },
+                                                    {
+                                                      "count": 6,
+                                                      "size": 24
+                                                    },
+                                                    {
+                                                      "count": 430353,
+                                                      "size": 32
+                                                    },
+                                                    {
+                                                      "count": 3,
+                                                      "size": 40
+                                                    },
+                                                    {
+                                                      "count": 26015,
+                                                      "size": 48
+                                                    },
+                                                    {
+                                                      "count": 5,
+                                                      "size": 56
+                                                    },
+                                                    {
+                                                      "count": 14,
+                                                      "size": 64
+                                                    },
+                                                    {
+                                                      "count": 1,
+                                                      "size": 72
+                                                    },
+                                                    {
+                                                      "count": 1,
+                                                      "size": 88
+                                                    },
+                                                    {
+                                                      "count": 1,
+                                                      "size": 96
+                                                    },
+                                                    {
+                                                      "count": 0,
+                                                      "size": 104
+                                                    },
+                                                    {
+                                                      "count": 1,
+                                                      "size": 112
+                                                    },
+                                                    {
+                                                      "count": 660,
+                                                      "size": 144
+                                                    },
+                                                    {
+                                                      "count": 0,
+                                                      "size": 152
+                                                    },
+                                                    {
+                                                      "count": 0,
+                                                      "size": 160
+                                                    },
+                                                    {
+                                                      "count": 1,
+                                                      "size": 168
+                                                    },
+                                                    {
+                                                      "count": 0,
+                                                      "size": 208
+                                                    },
+                                                    {
+                                                      "count": 1,
+                                                      "size": 216
+                                                    },
+                                                    {
+                                                      "count": 1,
+                                                      "size": 240
+                                                    },
+                                                    {
+                                                      "count": 659,
+                                                      "size": 336
+                                                    },
+                                                    {
+                                                      "count": 0,
+                                                      "size": 360
+                                                    },
+                                                    {
+                                                      "count": 659,
+                                                      "size": 624
+                                                    },
+                                                    {
+                                                      "count": 0,
+                                                      "size": 656
+                                                    },
+                                                    {
+                                                      "count": 0,
+                                                      "size": 672
+                                                    },
+                                                    {
+                                                      "count": 0,
+                                                      "size": 808
+                                                    },
+                                                    {
+                                                      "count": 0,
+                                                      "size": 816
+                                                    },
+                                                    {
+                                                      "count": 0,
+                                                      "size": 880
+                                                    },
+                                                    {
+                                                      "count": 1,
+                                                      "size": 912
+                                                    },
+                                                    {
+                                                      "count": 0,
+                                                      "size": 1048
+                                                    },
+                                                    {
+                                                      "count": 659,
+                                                      "size": 1056
+                                                    },
+                                                    {
+                                                      "count": 0,
+                                                      "size": 1104
+                                                    },
+                                                    {
+                                                      "count": 0,
+                                                      "size": 1136
+                                                    },
+                                                    {
+                                                      "count": 0,
+                                                      "size": 1144
+                                                    },
+                                                    {
+                                                      "count": 1,
+                                                      "size": 1184
+                                                    },
+                                                    {
+                                                      "count": 659,
+                                                      "size": 1704
+                                                    },
+                                                    {
+                                                      "count": 0,
+                                                      "size": 1776
+                                                    },
+                                                    {
+                                                      "count": 0,
+                                                      "size": 1832
+                                                    },
+                                                    {
+                                                      "count": 659,
+                                                      "size": 2672
+                                                    },
+                                                    {
+                                                      "count": 1,
+                                                      "size": 2784
+                                                    },
+                                                    {
+                                                      "count": 0,
+                                                      "size": 2880
+                                                    },
+                                                    {
+                                                      "count": 1,
+                                                      "size": 3504
+                                                    },
+                                                    {
+                                                      "count": 659,
+                                                      "size": 4128
+                                                    },
+                                                    {
+                                                      "count": 1,
+                                                      "size": 4296
+                                                    },
+                                                    {
+                                                      "count": 0,
+                                                      "size": 4448
+                                                    },
+                                                    {
+                                                      "count": 659,
+                                                      "size": 6312
+                                                    },
+                                                    {
+                                                      "count": 1,
+                                                      "size": 6560
+                                                    },
+                                                    {
+                                                      "count": 0,
+                                                      "size": 6800
+                                                    },
+                                                    {
+                                                      "count": 659,
+                                                      "size": 9584
+                                                    },
+                                                    {
+                                                      "count": 1,
+                                                      "size": 9960
+                                                    },
+                                                    {
+                                                      "count": 0,
+                                                      "size": 10328
+                                                    },
+                                                    {
+                                                      "count": 659,
+                                                      "size": 14496
+                                                    },
+                                                    {
+                                                      "count": 0,
+                                                      "size": 15624
+                                                    },
+                                                    {
+                                                      "count": 659,
+                                                      "size": 21864
+                                                    },
+                                                    {
+                                                      "count": 0,
+                                                      "size": 23568
+                                                    },
+                                                    {
+                                                      "count": 659,
+                                                      "size": 32912
+                                                    },
+                                                    {
+                                                      "count": 0,
+                                                      "size": 35480
+                                                    },
+                                                    {
+                                                      "count": 660,
+                                                      "size": 49488
+                                                    },
+                                                    {
+                                                      "count": 0,
+                                                      "size": 53336
+                                                    },
+                                                    {
+                                                      "count": 0,
+                                                      "size": 53352
+                                                    },
+                                                    {
+                                                      "count": 660,
+                                                      "size": 74352
+                                                    },
+                                                    {
+                                                      "count": 0,
+                                                      "size": 74360
+                                                    },
+                                                    {
+                                                      "count": 0,
+                                                      "size": 80120
+                                                    },
+                                                    {
+                                                      "count": 0,
+                                                      "size": 80160
+                                                    },
+                                                    {
+                                                      "count": 1020,
+                                                      "size": 111648
+                                                    },
+                                                    {
+                                                      "count": 1,
+                                                      "size": 111672
+                                                    },
+                                                    {
+                                                      "count": 1,
+                                                      "size": 120296
+                                                    },
+                                                    {
+                                                      "count": 2,
+                                                      "size": 120360
+                                                    }
+                                                  ],
+                                                  "child_ids": [],
+                                                  "children": []
+                                                },
+                                                {
+                                                  "id": "79:22:39",
+                                                  "script_id": 79,
+                                                  "script_name": "/Volumes/d/dev/js/sample-heap/example/allocate.js",
+                                                  "name": "flatArray",
+                                                  "line_number": 22,
+                                                  "column_number": 39,
+                                                  "start_position": 491,
+                                                  "allocations": [
+                                                    {
+                                                      "count": 3,
+                                                      "size": 16
+                                                    },
+                                                    {
+                                                      "count": 3,
+                                                      "size": 32
+                                                    },
+                                                    {
+                                                      "count": 4,
+                                                      "size": 56
+                                                    },
+                                                    {
+                                                      "count": 3,
+                                                      "size": 72
+                                                    }
+                                                  ],
+                                                  "child_ids": [
+                                                    "79:24:21"
+                                                  ],
+                                                  "children": [
+                                                    {
+                                                      "id": "79:24:21",
+                                                      "script_id": 79,
+                                                      "script_name": "/Volumes/d/dev/js/sample-heap/example/allocate.js",
+                                                      "name": "fillArray",
+                                                      "line_number": 24,
+                                                      "column_number": 21,
+                                                      "start_position": 531,
+                                                      "allocations": [
+                                                        {
+                                                          "count": 3,
+                                                          "size": 16
+                                                        },
+                                                        {
+                                                          "count": 4,
+                                                          "size": 24
+                                                        },
+                                                        {
+                                                          "count": 3,
+                                                          "size": 32
+                                                        },
+                                                        {
+                                                          "count": 1,
+                                                          "size": 40
+                                                        },
+                                                        {
+                                                          "count": 1,
+                                                          "size": 48
+                                                        },
+                                                        {
+                                                          "count": 1,
+                                                          "size": 56
+                                                        },
+                                                        {
+                                                          "count": 1,
+                                                          "size": 64
+                                                        },
+                                                        {
+                                                          "count": 1,
+                                                          "size": 72
+                                                        },
+                                                        {
+                                                          "count": 1,
+                                                          "size": 136
+                                                        },
+                                                        {
+                                                          "count": 1,
+                                                          "size": 152
+                                                        },
+                                                        {
+                                                          "count": 1,
+                                                          "size": 160
+                                                        },
+                                                        {
+                                                          "count": 1,
+                                                          "size": 176
+                                                        },
+                                                        {
+                                                          "count": 1,
+                                                          "size": 344
+                                                        },
+                                                        {
+                                                          "count": 1,
+                                                          "size": 632
+                                                        },
+                                                        {
+                                                          "count": 1,
+                                                          "size": 1064
+                                                        },
+                                                        {
+                                                          "count": 1,
+                                                          "size": 1712
+                                                        },
+                                                        {
+                                                          "count": 1,
+                                                          "size": 2688
+                                                        },
+                                                        {
+                                                          "count": 1,
+                                                          "size": 4152
+                                                        },
+                                                        {
+                                                          "count": 1,
+                                                          "size": 6344
+                                                        },
+                                                        {
+                                                          "count": 1,
+                                                          "size": 9632
+                                                        }
+                                                      ],
+                                                      "child_ids": [
+                                                        "79:3:26"
+                                                      ],
+                                                      "children": [
+                                                        {
+                                                          "id": "79:3:26",
+                                                          "script_id": 79,
+                                                          "script_name": "/Volumes/d/dev/js/sample-heap/example/allocate.js",
+                                                          "name": "createEmptyArray",
+                                                          "line_number": 3,
+                                                          "column_number": 26,
+                                                          "start_position": 101,
+                                                          "allocations": [
+                                                            {
+                                                              "count": 2,
+                                                              "size": 24
+                                                            },
+                                                            {
+                                                              "count": 152,
+                                                              "size": 48
+                                                            },
+                                                            {
+                                                              "count": 1,
+                                                              "size": 2088
+                                                            },
+                                                            {
+                                                              "count": 140,
+                                                              "size": 8208
+                                                            },
+                                                            {
+                                                              "count": 884,
+                                                              "size": 8240
+                                                            }
+                                                          ],
+                                                          "child_ids": [],
+                                                          "children": []
+                                                        }
+                                                      ]
+                                                    }
+                                                  ]
+                                                }
+                                              ]
+                                            },
+                                            {
+                                              "id": "81:118:57",
+                                              "script_id": 81,
+                                              "script_name": "/Volumes/d/dev/js/sample-heap/sample-heap-allocations.js",
+                                              "name": "collectAllocations",
+                                              "line_number": 118,
+                                              "column_number": 57,
+                                              "start_position": 3230,
+                                              "allocations": [
+                                                {
+                                                  "count": 3,
+                                                  "size": 16
+                                                },
+                                                {
+                                                  "count": 4,
+                                                  "size": 24
+                                                },
+                                                {
+                                                  "count": 8,
+                                                  "size": 32
+                                                },
+                                                {
+                                                  "count": 4,
+                                                  "size": 40
+                                                },
+                                                {
+                                                  "count": 4,
+                                                  "size": 56
+                                                },
+                                                {
+                                                  "count": 1,
+                                                  "size": 72
+                                                },
+                                                {
+                                                  "count": 1,
+                                                  "size": 80
+                                                },
+                                                {
+                                                  "count": 1,
+                                                  "size": 136
+                                                },
+                                                {
+                                                  "count": 3,
+                                                  "size": 144
+                                                }
+                                              ],
+                                              "child_ids": [
+                                                "81:40:45"
+                                              ],
+                                              "children": [
+                                                {
+                                                  "id": "81:40:45",
+                                                  "script_id": 81,
+                                                  "script_name": "/Volumes/d/dev/js/sample-heap/sample-heap-allocations.js",
+                                                  "name": "collectNodes",
+                                                  "line_number": 40,
+                                                  "column_number": 45,
+                                                  "start_position": 1264,
+                                                  "allocations": [
+                                                    {
+                                                      "count": 4,
+                                                      "size": 24
+                                                    },
+                                                    {
+                                                      "count": 6,
+                                                      "size": 32
+                                                    },
+                                                    {
+                                                      "count": 6,
+                                                      "size": 40
+                                                    },
+                                                    {
+                                                      "count": 1,
+                                                      "size": 48
+                                                    },
+                                                    {
+                                                      "count": 4,
+                                                      "size": 56
+                                                    },
+                                                    {
+                                                      "count": 1,
+                                                      "size": 64
+                                                    },
+                                                    {
+                                                      "count": 2,
+                                                      "size": 72
+                                                    },
+                                                    {
+                                                      "count": 1,
+                                                      "size": 128
+                                                    },
+                                                    {
+                                                      "count": 1,
+                                                      "size": 168
+                                                    },
+                                                    {
+                                                      "count": 1,
+                                                      "size": 280
+                                                    },
+                                                    {
+                                                      "count": 1,
+                                                      "size": 1024
+                                                    },
+                                                    {
+                                                      "count": 1,
+                                                      "size": 3952
+                                                    },
+                                                    {
+                                                      "count": 1,
+                                                      "size": 5496
+                                                    }
+                                                  ],
+                                                  "child_ids": [],
+                                                  "children": []
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
