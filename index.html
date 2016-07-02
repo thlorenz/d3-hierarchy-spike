@@ -3,8 +3,14 @@
 <head>
   <meta charset=utf-8 />
   <title>Index</title>
+  <!-- CDN -->
+  <!--
   <script src="https://d3js.org/d3.v3.js"></script>
   <script src="https://d3js.org/d3-hierarchy.v1.min.js"></script>
+  -->
+  <!-- local -->
+  <script src="./d3.v3.js"></script>
+  <script src="./d3-hierarchy.v1.min.js"></script>
   <!-- used by tree.js -->
   <style>
 
@@ -40,6 +46,7 @@
     <a href="#tree">tree</a>
     <a href="#treemap">treemap</a>
   </span>
+  <input id="refresh" type="button" value="Refresh"
   <div id="flamegraph" class="flamegraph"></div>
   <div id="sunburst" class="sunburst"></div>
   <div id="tree" class="tree"></div>
