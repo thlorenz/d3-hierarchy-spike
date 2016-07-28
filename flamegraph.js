@@ -63,9 +63,7 @@ module.exports = function initFlamegraph(graph, inspect) {
     .style('white-space', 'pre')
 
   function getLabel(d) {
-    const parts = d.script_name.split('/')
-    const shortScriptName = parts.slice(-2).join('/')
-    return `[${sumAllocs(d)}] (${d.name}) ${shortScriptName}`
+    return `[${sumAllocs(d)}] (${d.name}) ${d.script_name}`
   }
 
   function mouseover(d) {
