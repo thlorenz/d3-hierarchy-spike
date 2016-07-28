@@ -81,6 +81,7 @@ module.exports = function initSunburst(graph, inspect) {
       .duration(1000)
       .ease('elastic')
       .style('opacity', 0.3)
+      .style('cursor', 'pointer')
 
     d3.select('#tip')
       .text(getLabel(d))
