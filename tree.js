@@ -32,9 +32,11 @@ module.exports = function initTree(graph, inspect) {
     .append('g')
       .attr('transform', 'translate(40,0)')
 
+  const nodes = root.descendants()
+
   // link paths
   svg.selectAll('.link')
-        .data(root.descendants().slice(1))
+        .data(nodes.slice(1))
       .enter().append('path')
         .attr('class', 'link')
         .attr('d', function(d) {
@@ -44,24 +46,66 @@ module.exports = function initTree(graph, inspect) {
               + ' ' + d.parent.y + ',' + d.parent.x
         })
 
-  const node = svg.selectAll('.node')
-      .data(root.descendants())
-    .enter().append('g')
-      .attr('class', function(d) { return 'node' + (d.children ? ' node--internal' : ' node--leaf') })
-      .attr('transform', function(d) { return 'translate(' + d.y + ',' + d.x + ')' })
+  const g = svg.selectAll('.node')
+      .data(nodes)
+      .enter()
+        .append('g')
+
+  g.attr('class', function(d) { return 'node' + (d.children ? ' node--internal' : ' node--leaf') })
+    .attr('transform', function(d) { return 'translate(' + d.y + ',' + d.x + ')' })
 
   function getRadius(d) {
-    return Math.max(d.data.allocSum / maxAllocs * 20, 2.5)
+    const r = Math.max(d.data.allocSum / maxAllocs * 500, 5)
+    return Math.min(r, 120)
   }
 
-  node.append('circle')
+  g.append('circle')
     .attr('r', getRadius)
+    .on('mouseover', mouseover)
+    .on('mouseout', mouseout)
 
-  node.append('text')
+  g.append('text')
     .attr('dy', -15)
     .attr('x', d => d.children ? -8 : 8)
     .style('text-anchor', d => d.children ? 'end' : 'start')
-    .text(d => d.data.script_id + ':' + d.data.name)
+    .text(d => d.data.name)
 
-  console.log({ maxAllocs })
+  // labels
+  g.selectAll('text')
+    .data(nodes)
+    .enter()
+    .append('text')
+    .attr('id', 'tip-tree')
+    .attr('x', 0)
+    .attr('y', -(height / 2))
+    .style('opacity', 0)
+    .style('white-space', 'pre')
+
+  function getLabel(d) {
+    const lbl = `[${d.allocSum}] (${d.name}) ${d.script_name}`
+    console.log(lbl)
+    return lbl
+  }
+
+  function mouseover(d) {
+    d3.select(this)
+      .transition()
+      .duration(500)
+      .ease('elastic')
+      .style('opacity', 1)
+      .style('cursor', 'pointer')
+
+    d3.select('#tip-tree')
+      .text(getLabel(d.data))
+      .style('opacity', 0.9)
+  }
+
+  function mouseout(d) {
+    d3.select(this)
+      .transition()
+      .duration(100)
+      .style('opacity', 0.7)
+
+    d3.select('#tip-tree').style('opacity', 0)
+  }
 }
