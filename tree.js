@@ -4,7 +4,8 @@ const d3 = window.d3
 
 module.exports = function initTree(graph, inspect) {
   const width = 1400
-  const height = 800
+  const height = 1600
+  const scale = 30
   let maxAllocs = 0
 
   function sumAllocs(d) {
@@ -55,7 +56,7 @@ module.exports = function initTree(graph, inspect) {
     .attr('transform', function(d) { return 'translate(' + d.y + ',' + d.x + ')' })
 
   function getRadius(d) {
-    const r = Math.max(d.data.allocSum / maxAllocs * 500, 5)
+    const r = Math.max(d.data.allocSum / maxAllocs * scale, 5)
     return Math.min(r, 120)
   }
 
@@ -82,9 +83,7 @@ module.exports = function initTree(graph, inspect) {
     .style('white-space', 'pre')
 
   function getLabel(d) {
-    const lbl = `[${d.allocSum}] (${d.name}) ${d.script_name}`
-    console.log(lbl)
-    return lbl
+    return `[${d.allocSum}] (${d.name}) ${d.script_name}`
   }
 
   function mouseover(d) {
