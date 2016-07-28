@@ -3,12 +3,13 @@
 const d3 = window.d3
 
 module.exports = function initFlamegraph(graph, inspect) {
+  const labelMargin = 40
   const width = 1400
   const height = 800
 
   const svg = d3.select('.flamegraph').append('svg')
     .attr('width', width)
-    .attr('height', height)
+    .attr('height', height + labelMargin)
 
   function sumAllocs(d) {
     function add(acc, alloc) {
@@ -34,21 +35,58 @@ module.exports = function initFlamegraph(graph, inspect) {
   const color = d3.scale.category20()
   const nodes = partition.nodes(graph)
 
-  svg.selectAll('.node')
+  const g = svg.selectAll('.node')
       .data(nodes)
-    .enter().append('rect')
-      .attr('class', 'node')
-      .attr('x', d => d.x)
-      .attr('y', d => d.y)
-      .attr('width', d => d.dx)
-      .attr('height', d => d.dy)
-      .style('fill', d => color((d.children ? d : d.parent).name))
+      .enter()
+        .append('g')
 
-    svg.selectAll('.label')
-      .data(nodes.filter(d => d.dx > 6))
-    .enter().append('text')
-      .attr('class', 'label')
-      .attr('dy', '.35em')
-      .attr('transform', d => 'translate(' + (d.x + d.dx / 2) + ',' + (d.y + d.dy / 2) + ')')
-      .text(d => d.name)
+  g.append('rect')
+    .attr('class', 'node')
+    .attr('x', d => d.x)
+    .attr('y', d => height - d.y - d.dy)
+    .attr('width', d => d.dx)
+    .attr('height', d => d.dy)
+    .style('fill', d => color((d.children ? d : d.parent).name))
+    .on('mouseover', mouseover)
+    .on('mouseout', mouseout)
+
+  // labels
+  g.selectAll('text')
+    .data(nodes)
+    .enter()
+    .append('text')
+    .attr('id', 'tip-flamegraph')
+    .attr('x', 0)
+    .attr('y', height + labelMargin / 2)
+    .attr('font-size', '14px')
+    .style('opacity', 0)
+    .style('white-space', 'pre')
+
+  function getLabel(d) {
+    const parts = d.script_name.split('/')
+    const shortScriptName = parts.slice(-2).join('/')
+    return `[${sumAllocs(d)}] (${d.name}) ${shortScriptName}`
+  }
+
+  function mouseover(d) {
+    d3.select(this)
+      .transition()
+      .duration(1000)
+      .ease('elastic')
+      .style('opacity', 0.3)
+      .style('cursor', 'pointer')
+
+    d3.select('#tip-flamegraph')
+      .text(getLabel(d))
+      .style('opacity', 0.9)
+  }
+
+  function mouseout(d) {
+    d3.select(this)
+      .transition()
+      .duration(100)
+      .style('opacity', 1)
+
+    d3.select('#tip-flamegraph').style('opacity', 0)
+  }
 }

@@ -62,7 +62,7 @@ module.exports = function initSunburst(graph, inspect) {
     .data(nodes)
     .enter()
     .append('text')
-    .attr('id', 'tip')
+    .attr('id', 'tip-sunburst')
     .attr('x', -100)
     .attr('y', 0)
     .attr('font-size', '11px')
@@ -83,7 +83,7 @@ module.exports = function initSunburst(graph, inspect) {
       .style('opacity', 0.3)
       .style('cursor', 'pointer')
 
-    d3.select('#tip')
+    d3.select('#tip-sunburst')
       .text(getLabel(d))
       .style('opacity', 0.9)
   }
@@ -94,6 +94,6 @@ module.exports = function initSunburst(graph, inspect) {
       .duration(100)
       .style('opacity', 1)
 
-    d3.select('#tip').style('opacity', 0)
+    d3.select('#tip-sunburst').style('opacity', 0)
   }
 }
