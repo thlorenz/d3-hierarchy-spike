@@ -1,10 +1,15 @@
 'use strict'
 
 const d3 = window.d3
+const addLabel = require('./add-label')
 
-module.exports = function initTree(graph, inspect) {
-  const width = 1400
-  const height = 1600
+module.exports = function initTree({
+      graph
+    , clazz
+    , width = 1400
+    , height = 1600
+    , getChildren = d => d.children
+}) {
   const scale = 30
   let maxAllocs = 0
 
@@ -14,10 +19,6 @@ module.exports = function initTree(graph, inspect) {
     }
     d.data.allocSum  = d.data.allocations.reduce(add, 0)
     maxAllocs = Math.max(maxAllocs, d.data.allocSum)
-  }
-
-  function getChildren(d) {
-    return d.children
   }
 
   const root = d3.hierarchy(graph, getChildren)
@@ -46,13 +47,14 @@ module.exports = function initTree(graph, inspect) {
               + ' ' + (d.y + d.parent.y) / 2 + ',' + d.parent.x
               + ' ' + d.parent.y + ',' + d.parent.x
         })
+        .style({ fill: 'none', stroke: '#555', 'stroke-opacity': 0.4, 'stroke-width': 1.5 })
 
   const g = svg.selectAll('.node')
       .data(nodes)
       .enter()
         .append('g')
 
-  g.attr('class', function(d) { return 'node' + (d.children ? ' node--internal' : ' node--leaf') })
+  g.attr('class', function(d) { return 'node' + (getChildren(d) ? ' node--internal' : ' node--leaf') })
     .attr('transform', function(d) { return 'translate(' + d.y + ',' + d.x + ')' })
 
   function getRadius(d) {
@@ -60,51 +62,26 @@ module.exports = function initTree(graph, inspect) {
     return Math.min(r, 120)
   }
 
-  g.append('circle')
+  const el = g.append('circle')
     .attr('r', getRadius)
-    .on('mouseover', mouseover)
-    .on('mouseout', mouseout)
 
   g.append('text')
     .attr('dy', -15)
-    .attr('x', d => d.children ? -8 : 8)
-    .style('text-anchor', d => d.children ? 'end' : 'start')
+    .attr('x', d => getChildren(d) ? -8 : 8)
+    .style('text-anchor', d => getChildren(d) ? 'end' : 'start')
     .text(d => d.data.name)
 
-  // labels
-  g.selectAll('text')
-    .data(nodes)
-    .enter()
-    .append('text')
-    .attr('id', 'tip-tree')
-    .attr('x', 0)
-    .attr('y', -(height / 2))
-    .style('opacity', 0)
-    .style('white-space', 'pre')
-
   function getLabel(d) {
-    return `[${d.allocSum}] (${d.name}) ${d.script_name}`
+    return `[${d.data.allocSum}] (${d.data.name}) ${d.data.script_name}`
   }
 
-  function mouseover(d) {
-    d3.select(this)
-      .transition()
-      .duration(500)
-      .ease('elastic')
-      .style('opacity', 1)
-      .style('cursor', 'pointer')
+  addLabel({ d3, g, el, nodes, sumAllocs, getLabel, id: 'tip-tree', x: 0, y: -(height / 2) })
 
-    d3.select('#tip-tree')
-      .text(getLabel(d.data))
-      .style('opacity', 0.9)
-  }
-
-  function mouseout(d) {
-    d3.select(this)
-      .transition()
-      .duration(100)
-      .style('opacity', 0.7)
-
-    d3.select('#tip-tree').style('opacity', 0)
-  }
+  // styling
+  svg.selectAll('.node circle')
+    .style({ fill: '#999' })
+  svg.selectAll('.node text')
+    .style({ 'font-size': 10, 'font-family': 'sans-serif' })
+  svg.selectAll('.node--internal circle')
+    .style({ fill: '#555' })
 }

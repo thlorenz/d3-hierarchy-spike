@@ -26,10 +26,10 @@ function refresh() {
     treeEl.innerHTML = ''
     treemapEl.innerHTML = ''
 
-    initFlamegraph(graph, inspect)
-    initSunburst(graph, inspect)
-    initTree(graph, inspect)
-    initTreemap(graph, inspect)
+    initFlamegraph({ graph, clazz: '.flamegraph' })
+    initSunburst({ graph, clazz: '.sunburst' })
+    initTree({ graph, clazz: '.tree' })
+    initTreemap({ graph, clazz: '.treemap' })
     console.log('refreshed')
   }
 }

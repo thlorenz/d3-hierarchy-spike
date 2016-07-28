@@ -1,32 +1,32 @@
 'use strict'
 
 const d3 = window.d3
+const addLabel = require('./add-label')
 
-module.exports = function initSunburst(graph, inspect) {
-  const width = 1000
-  const height = 800
+function sumAllocs(d) {
+  function add(acc, alloc) {
+    return acc + (alloc.count * alloc.size)
+  }
+  return d.allocations.reduce(add, 0)
+}
+
+module.exports = function initSunburst({
+      graph
+    , clazz
+    , width = 1000
+    , height = 800
+    , getChildren = d => d.children
+}) {
   const radius = Math.min(width, height) / 2
 
-  const svg = d3.select('.sunburst').append('svg')
+  const svg = d3.select(clazz).append('svg')
     .attr('width', width)
     .attr('height', height)
     .append('g')
       .attr('transform', 'translate(' + width / 2 + ',' + height * 0.52 + ')')
 
-  function sumAllocs(d) {
-    function add(acc, alloc) {
-      return acc + (alloc.count * alloc.size)
-    }
-    return d.allocations.reduce(add, 0)
-  }
-
-  function getChildren(d) {
-    return d.children
-  }
-
   function getSize(d) {
-    // hardcoded 100000 here .. in the realworld we'd have to determine that value
-    return Math.max(sumAllocs(d) / 100000, 2.5)
+    return Math.max(sumAllocs(d), 2.5)
   }
 
   const partition = d3.layout.partition()
@@ -48,26 +48,12 @@ module.exports = function initSunburst(graph, inspect) {
       .enter()
         .append('g')
 
-  g.append('path')
+  const el = g.append('path')
     .attr('display', d => d.depth ? null : 'none') // hide inner ring
     .attr('d', arc)
     .style('stroke', '#fff')
     .style('fill', d => color((d.children ? d : d.parent).name))
     .style('fill-rule', 'evenodd')
-    .on('mouseover', mouseover)
-    .on('mouseout', mouseout)
-
-  // labels
-  g.selectAll('text')
-    .data(nodes)
-    .enter()
-    .append('text')
-    .attr('id', 'tip-sunburst')
-    .attr('x', -100)
-    .attr('y', 0)
-    .attr('font-size', '11px')
-    .style('opacity', 0)
-    .style('white-space', 'pre')
 
   function getLabel(d) {
     const parts = d.script_name.split('/')
@@ -75,25 +61,5 @@ module.exports = function initSunburst(graph, inspect) {
     return `[${sumAllocs(d)}] (${d.name}) ${shortScriptName}`
   }
 
-  function mouseover(d) {
-    d3.select(this)
-      .transition()
-      .duration(1000)
-      .ease('elastic')
-      .style('opacity', 0.3)
-      .style('cursor', 'pointer')
-
-    d3.select('#tip-sunburst')
-      .text(getLabel(d))
-      .style('opacity', 0.9)
-  }
-
-  function mouseout(d) {
-    d3.select(this)
-      .transition()
-      .duration(100)
-      .style('opacity', 1)
-
-    d3.select('#tip-sunburst').style('opacity', 0)
-  }
+  addLabel({ d3, g, el, nodes, sumAllocs, getLabel, id: 'tip-sunburst', x: -100, y: 0 })
 }
