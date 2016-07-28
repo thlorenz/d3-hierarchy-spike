@@ -5,12 +5,22 @@ const d3 = window.d3
 module.exports = function initTree(graph, inspect) {
   const width = 1400
   const height = 800
+  let maxAllocs = 0
+
+  function sumAllocs(d) {
+    function add(acc, alloc) {
+      return acc + (alloc.count * alloc.size)
+    }
+    d.data.allocSum  = d.data.allocations.reduce(add, 0)
+    maxAllocs = Math.max(maxAllocs, d.data.allocSum)
+  }
 
   function getChildren(d) {
     return d.children
   }
 
   const root = d3.hierarchy(graph, getChildren)
+  root.each(sumAllocs)
 
   const tree = d3.tree()
       .size([ height, width - 150 ])
@@ -40,16 +50,8 @@ module.exports = function initTree(graph, inspect) {
       .attr('class', function(d) { return 'node' + (d.children ? ' node--internal' : ' node--leaf') })
       .attr('transform', function(d) { return 'translate(' + d.y + ',' + d.x + ')' })
 
-  function sumAllocs(d) {
-    function add(acc, alloc) {
-      return acc + (alloc.count * alloc.size)
-    }
-    return d.data.allocations.reduce(add, 0)
-  }
-
   function getRadius(d) {
-    // hardcoded 100000 here .. in the realworld we'd have to determine that value
-    return Math.max(sumAllocs(d) / 100000, 2.5)
+    return Math.max(d.data.allocSum / maxAllocs * 20, 2.5)
   }
 
   node.append('circle')
@@ -60,4 +62,6 @@ module.exports = function initTree(graph, inspect) {
     .attr('x', d => d.children ? -8 : 8)
     .style('text-anchor', d => d.children ? 'end' : 'start')
     .text(d => d.data.script_id + ':' + d.data.name)
+
+  console.log({ maxAllocs })
 }
